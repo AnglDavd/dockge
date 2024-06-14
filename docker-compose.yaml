@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  dockge:
+    image: louislam/dockge:1
+    restart: always
+    ports:
+      - 1001:5001
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/app/data
+      - /home/ainu/Docker/stacks:/home/ainu/Docker/stacks
+    environment:
+      # Tell Dockge where to find the stacks
+      - DOCKGE_STACKS_DIR=/home/ainu/Docker/stacks
